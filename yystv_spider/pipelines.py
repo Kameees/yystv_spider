@@ -41,10 +41,10 @@ class CsvPipeline(object):
     def open_spider(self, spider):
         self.file = open('yystv_history.csv', 'w', newline='', encoding='utf-8-sig')
         self.writer = csv.writer(self.file)
-        self.writer.writerow(['title', 'author', 'createtime', 'context'])
+        self.writer.writerow(['id', 'title', 'author', 'createtime', 'context'])
 
     def process_item(self, item, spider):
-        self.writer.writerow([item['title'], item['author'], item['createtime'], item['context']])
+        self.writer.writerow([item['id'], item['title'], item['author'], item['createtime'], item['context']])
         return item
 
     def close_spider(self, spider):
