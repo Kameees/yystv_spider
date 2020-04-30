@@ -89,6 +89,9 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-MONGO_URI = 'localhost'
 
+#   MONGO配置
+#   数据库地址
+MONGO_URI = 'localhost'
+#   数据库名
 MONGO_DATABASE = 'yystv'
