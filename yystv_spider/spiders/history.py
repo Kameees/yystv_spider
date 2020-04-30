@@ -21,7 +21,7 @@ class HistorySpider(scrapy.Spider):
             id = data.get('id')
             url = 'https://www.yystv.cn/p/' + str(id)
             #   生成文章页面的Request
-            yield scrapy.Request(url=url, callback=self.history_page, dont_filter=True)
+            yield scrapy.Request(url=url, callback=self.history_page, meta={'id': id}, dont_filter=True)
 
     def history_page(self, response):
         '''
@@ -30,6 +30,8 @@ class HistorySpider(scrapy.Spider):
         :return: 存有文章信息的item
         '''
         item = YystvSpiderItem()
+        #   文章id
+        item['id'] = response.meta['id']
         #   文章标题
         item['title'] = response.xpath('//div[@class="doc-title"]//text()').extract_first()
         content = response.xpath('//div[@class="content-block rel"]')
@@ -49,6 +51,9 @@ class HistorySpider(scrapy.Spider):
             else:
                 cont = p.xpath('text()').extract_first()
                 context.append(cont)
-        item['context'] = '<br>'.join(context)
+        if context:
+            item['context'] = '<br>'.join(context)
+        else:
+            item['context'] = ''
         yield item
 
