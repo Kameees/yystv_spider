@@ -340,4 +340,3 @@ scrapy crawl history
 
 ![yystvhistory2.png](https://kameee.top/upload/2020/04/yystv-history-2-a736b090ca104854a867ded366336618.png)
 
-![yystvhistory3.png](https://kameee.top/upload/2020/04/yystv-history-3-55cc92f636c9426faf967b02b22c5bcb.png)
